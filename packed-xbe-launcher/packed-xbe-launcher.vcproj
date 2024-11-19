@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="packed-xbe-launcher"
+	ProjectGUID="{7042E37D-652C-4428-A4FC-FC6261388985}"
+	Keyword="XboxProj">
+	<Platforms>
+		<Platform
+			Name="Xbox"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Xbox"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				OptimizeForProcessor="2"
+				AdditionalIncludeDirectories=""
+				PreprocessorDefinitions="_DEBUG;_XBOX"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				EnableEnhancedInstructionSet="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(OutDir)/$(ProjectName).pch"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="xapilibd.lib d3d8d.lib d3dx8d.lib xgraphicsd.lib dsoundd.lib dmusicd.lib xactengd.lib xsndtrkd.lib xvoiced.lib xonlined.lib xboxkrnl.lib xbdm.lib xunzipd.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories=""
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeForWindows98="1"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy .\Debug\packed-xbe-launcher.xbe .\Debug\packed-xbe-launcher_retail.xbe
+..\tools\xbepatch.exe .\Debug\packed-xbe-launcher_retail.xbe
+del .\Debug\packed-xbe-launcher_retail.bak
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="del payload.zip
+cd payload
+..\..\tools\7z.exe a ..\payload.zip .\*
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="XboxDeploymentTool"/>
+			<Tool
+				Name="XboxImageTool"
+				StackSize="65536"
+				IncludeDebugInfo="TRUE"
+				LimitAvailableMemoryTo64MB="TRUE"
+				DontMountUD="TRUE"
+				InsertFile="payload.zip,payload,R"
+				NoLibWarn="TRUE"/>
+		</Configuration>
+		<Configuration
+			Name="Profile|Xbox"
+			OutputDirectory="Profile"
+			IntermediateDirectory="Profile"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				OmitFramePointers="TRUE"
+				OptimizeForProcessor="2"
+				PreprocessorDefinitions="NDEBUG;_XBOX;PROFILE"
+				StringPooling="TRUE"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				EnableEnhancedInstructionSet="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(OutDir)/$(ProjectName).pch"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="xapilib.lib d3d8i.lib d3dx8.lib xgraphics.lib dsound.lib dmusici.lib xactengi.lib xsndtrk.lib xvoice.lib xonlines.lib xboxkrnl.lib xbdm.lib xperf.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="1"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
+				SetChecksum="TRUE"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="cd payload
+..\..\tools\7z.exe a ..\payload.zip .\*
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="XboxDeploymentTool"/>
+			<Tool
+				Name="XboxImageTool"
+				StackSize="65536"
+				IncludeDebugInfo="TRUE"
+				LimitAvailableMemoryTo64MB="TRUE"
+				DontMountUD="TRUE"
+				InsertFile="payload.zip,payload,R"
+				NoLibWarn="TRUE"/>
+		</Configuration>
+		<Configuration
+			Name="Profile_FastCap|Xbox"
+			OutputDirectory="Profile_FastCap"
+			IntermediateDirectory="Profile_FastCap"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				OmitFramePointers="TRUE"
+				OptimizeForProcessor="2"
+				PreprocessorDefinitions="NDEBUG;_XBOX;PROFILE;FASTCAP"
+				StringPooling="TRUE"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				EnableEnhancedInstructionSet="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(OutDir)/$(ProjectName).pch"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="3"
+				FastCAP="TRUE"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="xapilib.lib d3d8i.lib d3dx8.lib xgraphics.lib dsound.lib dmusici.lib xactengi.lib xsndtrk.lib xvoice.lib xonlines.lib xboxkrnl.lib xbdm.lib xperf.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="1"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
+				SetChecksum="TRUE"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="cd payload
+..\..\tools\7z.exe a ..\payload.zip .\*
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="XboxDeploymentTool"/>
+			<Tool
+				Name="XboxImageTool"
+				StackSize="65536"
+				IncludeDebugInfo="TRUE"
+				LimitAvailableMemoryTo64MB="TRUE"
+				DontMountUD="TRUE"
+				InsertFile="payload.zip,payload,R"
+				NoLibWarn="TRUE"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Xbox"
+			OutputDirectory="Release"
+			IntermediateDirectory="Release"
+			ConfigurationType="1"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				OmitFramePointers="TRUE"
+				OptimizeForProcessor="2"
+				AdditionalIncludeDirectories=""
+				PreprocessorDefinitions="NDEBUG;_XBOX"
+				StringPooling="TRUE"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				EnableEnhancedInstructionSet="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(OutDir)/$(ProjectName).pch"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="xapilib.lib d3d8.lib d3dx8.lib xgraphics.lib dsound.lib dmusic.lib xacteng.lib xsndtrk.lib xvoice.lib xonlines.lib xboxkrnl.lib xunzip.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories=""
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
+				SetChecksum="TRUE"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="del .\payload.zip
+copy .\Release\packed-xbe-launcher.xbe .\Release\packed-xbe-launcher_retail.xbe
+..\tools\xbepatch.exe .\Release\packed-xbe-launcher_retail.xbe
+del .\Release\packed-xbe-launcher_retail.bak
+..\tools\xbedump.exe .\Release\packed-xbe-launcher_retail.xbe -habibi
+move out.xbe .\Release\packed-xbe-launcher_signed.xbe
+rmdir /S /Q .\Release\ENDGAME
+rmdir /S /Q .\output
+mkdir .\output
+mkdir .\Release\ENDGAME
+xcopy ..\tools\ENDGAME .\Release\ENDGAME\ /E
+copy .\Release\packed-xbe-launcher_signed.xbe .\Release\ENDGAME\payload.xbe
+cd Release\ENDGAME
+..\..\..\tools\7z.exe a ..\packed-xbe-launcher_endgame.zip .\*
+cd ..\
+copy packed-xbe-launcher_signed.xbe ..\output\launcher_signed.xbe
+copy packed-xbe-launcher_retail.xbe ..\output\launcher_retail.xbe
+copy packed-xbe-launcher_endgame.zip ..\output\launcher_endgame.zip
+
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="del payload.zip
+cd payload
+..\..\tools\7z.exe a ..\payload.zip .\*
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="XboxDeploymentTool"/>
+			<Tool
+				Name="XboxImageTool"
+				StackSize="65536"
+				LimitAvailableMemoryTo64MB="TRUE"
+				DontMountUD="TRUE"
+				InsertFile="payload.zip,payload,R"/>
+		</Configuration>
+		<Configuration
+			Name="Release_LTCG|Xbox"
+			OutputDirectory="Release_LTCG"
+			IntermediateDirectory="Release_LTCG"
+			ConfigurationType="1"
+			CharacterSet="2"
+			WholeProgramOptimization="TRUE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				OmitFramePointers="TRUE"
+				OptimizeForProcessor="2"
+				AdditionalIncludeDirectories=""
+				PreprocessorDefinitions="NDEBUG;_XBOX;LTCG"
+				StringPooling="TRUE"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				EnableEnhancedInstructionSet="1"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderFile="$(OutDir)/$(ProjectName).pch"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="xapilib.lib d3d8ltcg.lib d3dx8.lib xgraphicsltcg.lib dsound.lib dmusicltcg.lib xactengltcg.lib xsndtrk.lib xvoice.lib xonlines.lib xboxkrnl.lib xunzip.lib"
+				OutputFile="$(OutDir)/$(ProjectName).exe"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories=""
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				OptimizeForWindows98="1"
+				SetChecksum="TRUE"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="del .\payload.zip
+copy .\Release_LTCG\packed-xbe-launcher.xbe .\Release_LTCG\packed-xbe-launcher_retail.xbe
+..\tools\xbepatch.exe .\Release_LTCG\packed-xbe-launcher_retail.xbe
+del .\Release_LTCG\packed-xbe-launcher_retail.bak
+..\tools\xbedump.exe .\Release_LTCG\packed-xbe-launcher_retail.xbe -habibi
+move out.xbe .\Release_LTCG\packed-xbe-launcher_signed.xbe
+rmdir /S /Q .\Release_LTCG\ENDGAME
+rmdir /S /Q .\output
+mkdir .\output
+mkdir .\Release_LTCG\ENDGAME
+xcopy ..\tools\ENDGAME .\Release_LTCG\ENDGAME\ /E
+copy .\Release_LTCG\packed-xbe-launcher_signed.xbe .\Release_LTCG\ENDGAME\payload.xbe
+cd Release_LTCG\ENDGAME
+..\..\..\tools\7z.exe a ..\packed-xbe-launcher_endgame.zip .\*
+cd ..\
+copy packed-xbe-launcher_signed.xbe ..\output\launcher_signed.xbe
+copy packed-xbe-launcher_retail.xbe ..\output\launcher_retail.xbe
+copy packed-xbe-launcher_endgame.zip ..\output\launcher_endgame.zip
+
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"
+				CommandLine="del payload.zip
+cd payload
+..\..\tools\7z.exe a ..\payload.zip .\*
+"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="XboxDeploymentTool"
+				ExcludedFromBuild="TRUE"/>
+			<Tool
+				Name="XboxImageTool"
+				StackSize="65536"
+				LimitAvailableMemoryTo64MB="TRUE"
+				DontMountUD="TRUE"
+				InsertFile="payload.zip,payload,R"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			<File
+				RelativePath=".\packed-xbe-launcher.cpp">
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			<File
+				RelativePath=".\xunzip.h">
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

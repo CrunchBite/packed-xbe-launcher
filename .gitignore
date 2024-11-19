@@ -1,0 +1,7 @@
+packed-xbe-launcher/Debug*
+packed-xbe-launcher/Release*
+packed-xbe-launcher/payload/*
+packed-xbe-launcher/payload.zip
+*.ncb
+launcher_*.xbe
+launcher_*.zip
