@@ -4,7 +4,7 @@ packed-xbe-launcher is a tool to make self-extracting chain-loading executables 
 
 ## Disclaimer
 
-**This tool is not feature complete and is not indended to be.** There is minimal error checking during the extraction and launching process and most failure scenarios result in the xbox console being told to reboot.
+**This tool is not feature complete and is not intended to be.** There is minimal error checking during the extraction and launching process and most failure scenarios result in the xbox console being told to reboot.
 
 If you require more polish than that you will have to add it yourself :)
 
