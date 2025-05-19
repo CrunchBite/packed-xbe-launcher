@@ -8,6 +8,8 @@ packed-xbe-launcher is a tool to make self-extracting chain-loading executables 
 
 If you require more polish than that you will have to add it yourself :)
 
+Payloads are limited to around ~50MB due to how this tool is written and the memory limitations of the Xbox. If you need a larger payload you must use multiple payload zips.
+
 ## Building
 
 To build this project a functional Xbox development environment using the official SDK (XDK) is required.
@@ -17,7 +19,7 @@ To build this project a functional Xbox development environment using the offici
 **NOTE: All XBE files in the payload must be [habibi](http://toogam.bespin.org/xboxmod/site/signxbe.htm)-signed!** Use the included xbedump.exe in the tools folder to sign. Example usage: `xbedump.exe default.xbe -habibi`
 
 2. Open `packed-xbe-launcher.vcproj`
-3. Set the Configuration to `Release_LTCG`
+3. Set the Configuration to `Release_nodeploy`
 4. Select Build, then Rebuild
 5. An ENDGAME zip and two XBEs will be output to the "output" folder. The 'signed' XBE is habibi signed for use with ENDGAME and other exploits. The 'retail' XBE will run on xbox consoles that are allready modified to run unsigned code.
 

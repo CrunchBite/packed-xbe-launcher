@@ -10,6 +10,7 @@ Global
 		Profile_FastCap = Profile_FastCap
 		Release = Release
 		Release_LTCG = Release_LTCG
+		Release_nodeploy = Release_nodeploy
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
 		{7042E37D-652C-4428-A4FC-FC6261388985}.Debug.ActiveCfg = Debug|Xbox
@@ -22,6 +23,8 @@ Global
 		{7042E37D-652C-4428-A4FC-FC6261388985}.Release.Build.0 = Release|Xbox
 		{7042E37D-652C-4428-A4FC-FC6261388985}.Release_LTCG.ActiveCfg = Release_LTCG|Xbox
 		{7042E37D-652C-4428-A4FC-FC6261388985}.Release_LTCG.Build.0 = Release_LTCG|Xbox
+		{7042E37D-652C-4428-A4FC-FC6261388985}.Release_nodeploy.ActiveCfg = Release_nodeploy|Xbox
+		{7042E37D-652C-4428-A4FC-FC6261388985}.Release_nodeploy.Build.0 = Release_nodeploy|Xbox
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

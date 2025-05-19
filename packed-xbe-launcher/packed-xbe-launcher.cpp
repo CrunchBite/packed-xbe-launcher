@@ -5,9 +5,9 @@
 //-------------------------------------------------------------------------------------------------
 
 // How to use:
-// 1. Put your payload contents in the payload folder
+// 1. Put your payload contents in the payload folder. Make sure your main XBE is named default.xbe
 // 2. If you are making an ENDGAME payload make sure your XBEs are all habibi signed with xbedump. Example command: xbedump.exe default.xbe -habibi
-// 3. Select the "Release_LTCG" configuration
+// 3. Select the "Release_nodeploy" configuration
 // 4. Select "Build" then "Rebuild solution"
 // 5. The payload will be packaged up and the launcher compiled
 // 6. An ENDGAME zip and two XBEs will be output to the "output" folder. The 'signed' XBE is habibi signed for use with ENDGAME and other exploits.
@@ -102,7 +102,7 @@ void unpackPayload() {
 	DWORD bytesWritten;
 	PVOID mem = XLoadSectionByHandle(sectionHandle);
 	HANDLE file = CreateFile(PAYLOAD_FILENAME, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-    WriteFile(file, mem, sectionSize, &bytesWritten, NULL);
+	WriteFile(file, mem, sectionSize, &bytesWritten, NULL);
 	CloseHandle(file);
 	XFreeSectionByHandle(sectionHandle);
 }
@@ -184,8 +184,8 @@ void mountAllDrives() {
 	MountDevice(DriveG, DeviceG);
 }
 BOOL fileExists(LPSTR filePath) {
-    struct stat buffer;
-    return (stat(filePath, &buffer) == 0);
+	struct stat buffer;
+	return (stat(filePath, &buffer) == 0);
 }
 HRESULT LaunchXBE(char * XBEFile) {
 	HRESULT r;
